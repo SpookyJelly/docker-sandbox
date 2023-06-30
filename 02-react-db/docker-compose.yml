@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  web:
+    build:
+      dockerfile: ./web/Dockerfile
+    ports:
+      - "1000:80"
+    networks:
+      - wireguard
+
+  back:
+    # image: node:alpine
+    build:
+      dockerfile: ./backend/Dockerfile
+    volumes:
+      # - 들어가봐서 띄우면 되지 않나???
+      # - "02-mongo:/data/db"
+
+    ports:
+      - "8002:8002"
+    networks:
+      - wireguard
+    depends_on:
+      - db
+  db:
+    container_name: mongo
+    image: "mongo"
+    ports:
+      - "27017:27017"
+    networks:
+      - wireguard
+    volumes:
+      - "02-mongo:/data/db"
+
+volumes:
+  02-mongo: # 새로운 볼륨 생성
+
+networks:
+  wireguard:
+  # external: true 하면 이미 있는 네트워크를 사용할 수 있다.

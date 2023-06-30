@@ -1,0 +1,19 @@
+{
+  "name": "02-react-db",
+  "version": "1.0.0",
+  "packageManager": "yarn@3.6.0",
+  "private": true,
+  "workspaces": [
+    "web",
+    "backend"
+  ],
+  "scripts": {
+    "web": "yarn workspace web",
+    "back": "yarn workspace backend",
+    "build": "yarn workspaces foreach run build",
+    "test": "yarn workspaces foreach -pv run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
