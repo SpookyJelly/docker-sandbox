@@ -13,9 +13,9 @@ services:
     # image: node:alpine
     build:
       dockerfile: ./backend/Dockerfile
-    volumes:
-      # - 들어가봐서 띄우면 되지 않나???
-      # - "02-mongo:/data/db"
+    # volumes:
+    #   # - 들어가봐서 띄우면 되지 않나???
+    #   # - "02-mongo:/data/db"
 
     ports:
       - "8002:8002"
