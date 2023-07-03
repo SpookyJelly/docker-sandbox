@@ -16,11 +16,6 @@ pipeline {
                 }
             }
         }
-        stage("Test"){
-            steps{
-                sh 'node --version'
-            }
-        }
     }
     // testing sh step
     // agent any
